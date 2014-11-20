@@ -31,6 +31,9 @@ ln.list() # This call will list the line attributes and their values
 tt=a.createtexttable(`new')
 tt.list() # This call will list the text-table attributes and their values
 ```
+
+### Secondary Objects API
+
 <style>
   tr>td:first-child {
     vertical-align: middle;
@@ -55,7 +58,7 @@ tt.list() # This call will list the text-table attributes and their values
 
   <tr class="info">
     <td colspan="1">Object:&nbsp;<a name="fillarea" id="fillarea"></a><code>fillarea</code></td>
-    <td>Describes the appearance of a block of color.</td>
+    <td>Use to place blocks of color on the canvas</td>
     <td><a name="Tf" id="Tf"></a>Class Name: <code>Tf</code></td>
   </tr>
 
@@ -127,7 +130,7 @@ tt.list() # This call will list the text-table attributes and their values
   <tr class="info">
     <td colspan="1">Object:&nbsp;<a name="marker" id="marker"></a><code>marker</code></td>
 
-    <td>Describes the appearance of a marker.</td>
+    <td>Use to place markers on the canvas</td>
     <td><a name="Tm" id="Tm"></a>Class Name: <code>Tm</code></td>
   </tr>
 
@@ -145,6 +148,18 @@ tt.list() # This call will list the text-table attributes and their values
   </tr>
 
   <tr>
+    <td><code>x</code></td>
+    <td>The x coordinate for each instance of this marker</td>
+    <td>List of FloatType: (Range 0 to 1)</td>
+  </tr>
+
+  <tr>
+    <td><code>y</code></td>
+    <td>The y coordinate for each instance of this marker</td>
+    <td>List of FloatType: (Range 0 to 1)</td>
+  </tr>
+
+  <tr>
     <td><code>size</code></td>
     <td>The size of the marker</td>
     <td>IntType: (Range 1 to 300)</td>
@@ -159,7 +174,7 @@ tt.list() # This call will list the text-table attributes and their values
   <tr class="info">
     <td colspan="1">Object:&nbsp;<a name="text-combined" id="text-combined"></a><code>textcombined</code></td>
 
-    <td>Provides a complete description of text to be rendered.</td>
+    <td>Use to display text on the canvas</td>
     <td><a name="Tc" id="Tc"></a>Class Name: <code>Tc</code></td>
   </tr>
 
@@ -213,8 +228,7 @@ tt.list() # This call will list the text-table attributes and their values
 
   <tr class="info">
     <td colspan="1">Object:&nbsp;<a name="text-orientation" id="text-orientation"></a><code>textorientation</code></td>
-
-    <td>Used to describe the positional information for text rendering.</td>
+    <td>Use to configure text's structural appearance; alignment, size, orientation.</td>
     <td><a name="To" id="To"></a>Class Name: <code>To</code></td>
   </tr>
 
@@ -250,8 +264,7 @@ tt.list() # This call will list the text-table attributes and their values
 
   <tr class="info">
     <td colspan="1">Object:&nbsp;<a name="text-table" id="text-table"></a><code>texttable</code></td>
-
-    <td>Used to describe the stylisitic information for text rendering.</td>
+    <td>Use to configure positional and stylistic data for text.</td>
     <td><a name="Tt" id="Tt"></a>Class Name: <code>Tt</code></td>
   </tr>
 
@@ -274,7 +287,126 @@ tt.list() # This call will list the text-table attributes and their values
   </tr>
 </table>
 
+### How to use the Secondary Objects
 
+<a name="fillarea_howto"></a>
+
+#### Fillarea
+
+The `fillarea` object can be used to draw blocks of color on the canvas. To describe the shapes to draw, you must put values into the `x` and `y` attributes of the `fillarea`. 
+
+```
+import vcs
+canvas = vcs.init()
+
+fillarea = canvas.createfillarea()
+fillarea.x = [.1, .1, .9, .9]
+fillarea.y = [.1, .9, .9, .1]
+
+canvas.plot(fillarea)
+```
+![Simple fillarea; black box]({{media_url("/images/vcs-simple-fill.png")}})
+
+
+Concave shapes don't fill well... this should display the letter "V".
+
+```
+# Here are the vertices:
+"""
+    0  1    3  4
+
+
+
+          2
+
+          5
+"""
+fillarea.x = [.1, .2, .3, .4, .5, .3, .1]
+fillarea.y = [.8, .8, .2, .8, .8, .1, .8]
+canvas.update()
+```
+
+![Concave Shape Fill]({{media_url("/images/vcs-concave-fill.png")}})
+
+To draw concave shapes, you have to break them into multiple parts.
+
+Here we're trying to create the letter "v", so we will break it into two halves across the middle. Since each fill will be two parts of the same image, we can group them into the same `fillarea` object, by providing multiple lists of coordinates to `x` and `y`. We will also specify different colors for each part, by supplying a list of colors to the `color` attribute.
+
+```
+v = canvas.createfillarea()
+
+v.color = [152, 20]
+
+# Numeric are for the left side, alpha for the right
+"""
+    0  1       B  C
+
+
+
+          2/A
+
+          3/D
+"""
+# v.x[0] and v.y[0] will describe the left half; v.x[1] and v.y[1] describe the second half
+v.x = [[0.1, 0.2, 0.3, 0.3], [0.3, 0.4, 0.5, 0.3]]
+v.y = [[0.8, 0.8, 0.2, 0.1], [0.2, 0.8, 0.8, 0.1]]
+
+canvas.plot(v)
+```
+
+![Concave Shape Fill in Parts]( {{ media_url("/images/vcs-concave-fill-parts.png") }} )
+
+`fillarea` is not limited to quadrilaterals. As long as the shape is convex, you can go from triangles on up.
+
+```
+# Eqilateral triangle
+tri = canvas.createfillarea()
+tri.color = 200
+
+tri.x = [.6, .75, .9]
+tri.y = [.1, .15 * (3 ** .5) + .1, .1]
+
+canvas.plot(tri)
+
+
+# Regular Dodecahedron
+dodeca = canvas.createfillarea()
+dodeca.color = 60
+
+import math
+
+center = (.5, .5)
+radius = .2
+theta = math.radians(30)
+
+dodeca.x = []
+dodeca.y = []
+
+for point in range(12):
+    theta_p = point * theta
+    dodeca.x.append( center[0] + radius * math.cos(theta_p) )
+    dodeca.y.append( center[1] + radius * math.sin(theta_p) )
+
+canvas.plot(dodeca)
+
+#Set the window size
+canvas.update()
+```
+
+![Many shapes, many sizes]( {{ media_url("/images/vcs-tri-and-dodeca.png") }})
+
+When shapes overlap, the order in which they render can be controlled by the `priority` field, which all VCS objects have and use in this fashion.
+
+```
+dodeca.priority = 1
+fillarea.priority = 2
+v.priority = 3
+canvas.update()
+```
+
+![The lowest priority (the dodecahedron) moves to the back]( {{ media_url("/images/vcs-dodeca-priority.png") }})
+
+Objects are rendered with the highest priority items on top. A priority of 0 prevents an object from rendering.
 
 
 {% endblock container %}
