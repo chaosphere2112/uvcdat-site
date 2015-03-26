@@ -1,0 +1,63 @@
+---
+title: UV-CDAT Diagnostics
+---
+
+{% extends "base.j2" %}
+{% from "macros.j2" import figure %}
+{% block container %}
+
+## How to Use the Diagnostics in the UV-CDAT GUI
+
+The Diagnostics system of UV-CDAT will generate any of a large number of plots to summarize output of climate models and how the output differs from observations or output of other climate models. The diagnostics may be run from command-line tools and scripts or from the regular UV-CDAT GUI. This GUI supports creation of almost all of the plots available by other means.
+
+It is highly recommended that you first retrieve a "standard" set of observation data before using diagnostics. There are three places to get suitable observation data. Each offers a different set of data.
+
+1. A set of observation data will be available from `llnl.gov` very soon.
+2. NCAR offers a set of observation data. You may get it using Subversion:
+ `svn export https://svn-ccsm-release.cgd.ucar.edu/model_diagnostics/atm/cam/obs_data_20140804/`
+3. For people with accounts at Oak Ridge, two sets of files are available in the Lustre system:
+    1. `/lustre/atlas/world-shared/csc121/obs_data_minimal` &mdash; Contains a minimal subset of observation datasets currently known to be required for supported diagnostics
+    2. `/lustre/atlas/world-shared/csc121/obs_data` &mdash; Contains all known observation data sets.
+
+To work with diagnostics, start up UV-CDAT with its GUI. You will see a "Diagnostics" menu item on the top right.
+
+{{ figure('', media_url("/images/diagnostics/menu.png"), "UV-CDAT GUI Menu &mdash; Diagnostics item on right") }}
+
+Select it, and in the pulldown menu select a package:  **AMWG** for atmosphere, **LMWG** for land, or (soon) **OMWG** for ocean diagnostics. {{ figure('', media_url("/images/diagnostics/diagnostics_item.png"), "Diagnostics Menu Item") }} 
+
+Then you will see the Diagnostics subpanel, show below:
+
+{{ figure('', media_url("/images/diagnostics/diagnostics_panel.png"), "Diagnostics panel&mdash; you can change the package here as well.") }}
+
+The first thing to do is select a dataset. Normally, you will begin by making sure that `Use Dataset 1` is checked, and then clicking on `Set Path` below it. This will open a file browser to let you select the directory that contains the data you want to analyze. The files don't have to immediately in the directory you select; the Diagnostics system will find all NetCDF (`.nc`) files in any subdirectories, sub-sub-directories, etc.
+
+Also under `Use Dataset 1` is a `Climos` button. With this, you can tell the system that your data consists of climatology (time-reduced, seasonal) files (if checked) or normal (time-dependent) model output (if unchecked). Usually the diagnostics system does not need to be told this, but sometimes it is helpful. Note that some diagnostics, especially **LMWG**, involve variables which are derived from the data by nonlinear computations. These generally require time-dependent data.
+
+Finally, you may specify a `File Filter` to narrow down the data in the given directory tree. You will need this if you have several sets of model output in the same place. Presently this has a flexible but unusual syntax. For example, to choose filenames beginning with 'spam', you can enter `f_startswith('spam')`. We will offer a simpler filter syntax in the future.
+
+The diagnostics system can produce plots from this one dataset. But usually you will want to choose another one for comparison. You may go on to "Use Dataset 2", or, most often, "Use Observations 1". Internally the diagnostic system treats all data the same way, but the GUI treats model and observations a little differently because it is more common for several observation datasets to share a single directory. For observations there is no file filter box. Instead, there is a pulldown menu whereby you may choose an observation set by name
+
+Once a dataset has been selected, the list of diagnostics sets is populated, the variables list is enabled, and other menus might also be enabled.
+
+{{ figure('', media_url("/images/diagnostics/diagnostics_list.png"), "Populated Diagnostics Set List") }}
+
+Chose a plot set and variable.
+
+{{ figure("", media_url("/images/diagnostics/diagnostics_variables.png"), "Choose which variable to use in this menu") }}
+
+You may also choose from the other options if available. Then click the `Apply` button and the diagnostics system will generate your plots.
+
+Notes:
+1. Depending on your screen real estate and the size of the UV-CDAT panels, you will probably need to scroll to see all of the possible diagnostics sets and all variables.
+2. Some variables in the variables menu may represent, not actual data variables, but variables which can be derived from the data by some computation. Often the diagnostics system does now know whether it has all the data it needs to perform the computation, until it actually tries to do the computation. So if it fails to compute a variable, nothing is wrong. Just choose another variable.
+3. If the diagnostic system has more plots for you than there are cells in the UV-CDAT spreadsheet of plots, then it will warn you and plot as many as it can.
+4. Analyzing a new dataset may take a noticeable amount of time.
+5. Some diagnostics require a large amount of computation &mdash; especially those involving variables derived from several data variables, or those requiring regridding or a change of coordinates.
+
+Once the background processing is complete, you'll see the reduced variables used to create the diagnostic plot(s) and the resultant plots.
+
+{{ figure("", media_url('/images/diagnostics/sample_diagnostic.png'), "A sample of diagnostic output")}}
+
+At this point, you can do anything with the data and plots you would normally do in UV-CDAT.
+
+{% endblock container %}

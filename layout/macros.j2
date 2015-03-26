@@ -58,3 +58,10 @@
     </div>
   {%- endfor %}
 {%- endmacro %}
+
+{% macro figure(classes, url, caption) -%}
+<figure class="image_wrapper {{ classes }}">
+  <img src="{{url}}">
+  <figcaption>{{caption}}</figcaption>
+</figure>
+{%-endmacro %}

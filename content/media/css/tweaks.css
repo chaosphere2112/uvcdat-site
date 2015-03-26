@@ -31,3 +31,30 @@ footer {
 	border-right:0;
 	box-shadow:none;
 }
+
+figure.image_wrapper {
+	display:inline-block;
+}
+
+figure.image_wrapper>img {
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+	max-height:400px;
+}
+
+.right_figure {
+	max-width:30%;
+	float:right;
+}
+
+.left_figure {
+	max-width:30%;
+	float:left;
+}
+
+figure.image_wrapper>figcaption {
+	color:#666;
+	font-size:.9em;
+	text-align:center;
+}
