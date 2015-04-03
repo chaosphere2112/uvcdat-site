@@ -8,79 +8,122 @@ description: All changes since UV-CDAT 2.1
 
 {% block container %}
 
-# UV-CDAT Changelog
+# UV-CDAT Changelog (Version 2.2)
 
-## 2.2 (March 2015)
+## Closed Issues
+### ACME
 
-* [Fixes autot resizing when configurator instantiated](https://github.com/UV-CDAT/uvcdat/pull/1098) by Sam Fries, Charles Doutriaux
-* [Issue423 durack1 fix vacumm dependencies](https://github.com/UV-CDAT/uvcdat/pull/1089) by Paul J. Durack ([Add VACUMM to UV-CDAT](https://github.com/UV-CDAT/uvcdat/issues/423))
-* [Properly remove template attribute displayplots (fix for #1096)](https://github.com/UV-CDAT/uvcdat/pull/1107) by Sam Fries ([No usch text combined](https://github.com/UV-CDAT/uvcdat/issues/1096))
-* [Detach 2D UI when plotting 3D charts](https://github.com/UV-CDAT/uvcdat/pull/1099) by Sam Fries
-* [Vcs3 d hide 3d controls for 2d plots](https://github.com/UV-CDAT/uvcdat/pull/1095) by Thomas Maxwell
-* [Fix ctest anonymous log](https://github.com/UV-CDAT/uvcdat/pull/1102) by Aashish Chaudhary
-* [Vcs2d interactions updated](https://github.com/UV-CDAT/uvcdat/pull/1091) by Sam Fries, Aashish Chaudhary
-* [Remove pycharm and unnecessary README files](https://github.com/UV-CDAT/uvcdat/pull/1090) by Thomas Maxwell
-* [Issue421 durack1 add seawater packages](https://github.com/UV-CDAT/uvcdat/pull/1072) by Paul J. Durack ([Add seawater package](https://github.com/UV-CDAT/uvcdat/issues/421))
-* [Issue1071 durack1 pyclimate check build settings](https://github.com/UV-CDAT/uvcdat/pull/1075) by Paul J. Durack ([Pyclimate not built with build mode all](https://github.com/UV-CDAT/uvcdat/issues/1071))
-* [Issue1034 durack1 fix h5py dependencies](https://github.com/UV-CDAT/uvcdat/pull/1083) by Paul J. Durack, Aashish Chaudhary ([Adding h5py to "full" builds](https://github.com/UV-CDAT/uvcdat/issues/1034))
-* [Vcs3D features for v2.1.1](https://github.com/UV-CDAT/uvcdat/pull/951) by Thomas Maxwell
-* [Fix #1008](https://github.com/UV-CDAT/uvcdat/pull/1039) by Charles Doutriaux ([invalid units lead to error at plot time](https://github.com/UV-CDAT/uvcdat/issues/1008))
-* [should address part of #729](https://github.com/UV-CDAT/uvcdat/pull/1052) by Charles Doutriaux ([polar plot in isofill is not an option and isoline polar plot has wrong tic marks](https://github.com/UV-CDAT/uvcdat/issues/729))
-* [Adding 3 to amplitude so that os roundup diffs do not show in mean](https://github.com/UV-CDAT/uvcdat/pull/1076) by Charles Doutriaux
-* [Removes a warning](https://github.com/UV-CDAT/uvcdat/pull/1069) by Remi Rampin
-* [Line duplicate points fix](https://github.com/UV-CDAT/uvcdat/pull/1067) by Sam Fries, Charles Doutriaux
-* [Cmake fixes](https://github.com/UV-CDAT/uvcdat/pull/1062) by Aashish Chaudhary
-* [Issue 1049 taylor json](https://github.com/UV-CDAT/uvcdat/pull/1051) by Charles Doutriaux ([taylordiagrams do not save json ](https://github.com/UV-CDAT/uvcdat/issues/1049))
-* [fix #118](https://github.com/UV-CDAT/uvcdat/pull/1060) by Charles Doutriaux ([Zonal regridding seg faults unless regridTool='regrid2'](https://github.com/UV-CDAT/uvcdat/issues/118))
-* [fix #976](https://github.com/UV-CDAT/uvcdat/pull/1041) by Charles Doutriaux ([Longitude and latitude labels](https://github.com/UV-CDAT/uvcdat/issues/976))
-* [fix #999](https://github.com/UV-CDAT/uvcdat/pull/1040) by Charles Doutriaux ([Multiple errors in vcs x.show](https://github.com/UV-CDAT/uvcdat/issues/999))
-* [Issue1034 durack1 add h5py](https://github.com/UV-CDAT/uvcdat/pull/1061) by Paul J. Durack, Aashish Chaudhary ([Adding h5py to "full" builds](https://github.com/UV-CDAT/uvcdat/issues/1034))
-* [Enable labels for isolines ](https://github.com/UV-CDAT/uvcdat/pull/926) by Charles Doutriaux, Aashish Chaudhary, David C. Lonie
-* [Issue1023 durack1 cython0p21p2 update](https://github.com/UV-CDAT/uvcdat/pull/1025) by Paul J. Durack ([Update Cython to 0.21.2](https://github.com/UV-CDAT/uvcdat/issues/1023))
-* [Issue1036 durack1 ipython2.4.1 update](https://github.com/UV-CDAT/uvcdat/pull/1037) by Paul J. Durack ([Update ipython to 2.4.1](https://github.com/UV-CDAT/uvcdat/issues/1036))
-* [fix #1026 - sftbyrgn typo fixes and added PCMDI ezget report URL](https://github.com/UV-CDAT/uvcdat/pull/1027) by Paul J. Durack ([sftbyrgn typo fixes and clean up docstring](https://github.com/UV-CDAT/uvcdat/issues/1026))
-* [Reduce indentation level of the block beginning "if len(sub)>1:" in aver...](https://github.com/UV-CDAT/uvcdat/pull/1050) by Jeff Painter
-* [1. In the section involving 'allaxesdummy', where a dummy variable is cr...](https://github.com/UV-CDAT/uvcdat/pull/1047) by Jeff Painter
-* [Increase the initial GL2PS feedback buffer size.](https://github.com/UV-CDAT/uvcdat/pull/1016) by David C. Lonie, Charles Doutriaux
-* [Issue1031 durack1 hdf5 tools tweaks](https://github.com/UV-CDAT/uvcdat/pull/1032) by Paul J. Durack ([HDF5Tools tweaks to deal with problematic missing_value](https://github.com/UV-CDAT/uvcdat/issues/1031))
-* [Export text as paths in vector exports.](https://github.com/UV-CDAT/uvcdat/pull/1013) by David C. Lonie
-* [enhanced 'Mean' attribute on vcs plots](https://github.com/UV-CDAT/uvcdat/pull/1028) by Charles Doutriaux
-* [Update background color](https://github.com/UV-CDAT/uvcdat/pull/1014) by Sam Fries
-* [was returning flipped y1/y2 even if user specified directions](https://github.com/UV-CDAT/uvcdat/pull/1022) by Charles Doutriaux
-* [Issue 1009 horrible prompt](https://github.com/UV-CDAT/uvcdat/pull/1010) by Charles Doutriaux ([setup_runtime messes with prompt!](https://github.com/UV-CDAT/uvcdat/issues/1009))
-* [Updated packages reference](https://github.com/UV-CDAT/uvcdat/pull/992) by Aashish Chaudhary
-* [do not turn off metrics when no GUI](https://github.com/UV-CDAT/uvcdat/pull/1005) by Charles Doutriaux
-* [Fix git clone & update helper scripts](https://github.com/UV-CDAT/uvcdat/pull/993) by Remi Rampin
-* [Create an option to enable vtkweb](https://github.com/UV-CDAT/uvcdat/pull/987) by Jonathan Beezley
-* [Fixing UVCDAT runtime environment](https://github.com/UV-CDAT/uvcdat/pull/747) by Remi Rampin
-* [Need to escape an additional % in install.py](https://github.com/UV-CDAT/uvcdat/pull/998) by Jonathan Beezley
-* [Checking for http and https as well now](https://github.com/UV-CDAT/uvcdat/pull/994) by Aashish Chaudhary
-* [% had to be escaped](https://github.com/UV-CDAT/uvcdat/pull/995) by Charles Doutriaux
-* [Setting the correct PYTHON_SITE_PACKAGES_PREFIX on Apple](https://github.com/UV-CDAT/uvcdat/pull/988) by Charles Doutriaux, Jonathan Beezley
-* [fix #984](https://github.com/UV-CDAT/uvcdat/pull/985) by Charles Doutriaux ([cdutil times criteriaargclim is useless and leads to error](https://github.com/UV-CDAT/uvcdat/issues/984))
-* [Update udunits2 patch for travis mac builds.](https://github.com/UV-CDAT/uvcdat/pull/978) by David C. Lonie
-* [relative path somehow got broken](https://github.com/UV-CDAT/uvcdat/pull/982) by Charles Doutriaux
-* [Update cmake to version 3.1 on travis before building](https://github.com/UV-CDAT/uvcdat/pull/975) by Jonathan Beezley, Aashish Chaudhary
-* [System python updated](https://github.com/UV-CDAT/uvcdat/pull/974) by David C. Lonie, Chris Harris, Charles Doutriaux, Jonathan Beezley, Aashish Chaudhary
-* [Build in source](https://github.com/UV-CDAT/uvcdat/pull/973) by David C. Lonie, Remi Rampin
-* [Issue846 doutriaux1 netcdf432 and deps update](https://github.com/UV-CDAT/uvcdat/pull/972) by Charles Doutriaux, Paul J. Durack ([Update netcdf to 4.3.2](https://github.com/UV-CDAT/uvcdat/issues/846))
-* [Issue847 durack1 udunits2217 update](https://github.com/UV-CDAT/uvcdat/pull/917) by Paul J. Durack ([Update udunits to 2.2.x branch](https://github.com/UV-CDAT/uvcdat/issues/847))
-* [Removed references to textcombined.colormap](https://github.com/UV-CDAT/uvcdat/pull/909) by Sam Fries
-* [Issue841 durack1 matplotlib142 update](https://github.com/UV-CDAT/uvcdat/pull/921) by Paul J. Durack ([Update matplotlib to 1.4.2](https://github.com/UV-CDAT/uvcdat/issues/841))
-* [Issue856 durack1 ipython231 update](https://github.com/UV-CDAT/uvcdat/pull/920) by Paul J. Durack ([Update ipython to 2.3.1](https://github.com/UV-CDAT/uvcdat/issues/856))
-* [Star and triangle fix](https://github.com/UV-CDAT/uvcdat/pull/956) by Sam Fries, Charles Doutriaux
-* [Issue814 durack1 spyder232 update](https://github.com/UV-CDAT/uvcdat/pull/941) by Paul J. Durack ([Update spyder to 2.3.2](https://github.com/UV-CDAT/uvcdat/issues/814))
-* [Issue942 durack1 python279 update](https://github.com/UV-CDAT/uvcdat/pull/944) by Paul J. Durack ([Update python to 2.7.9](https://github.com/UV-CDAT/uvcdat/issues/942))
-* [fix #969](https://github.com/UV-CDAT/uvcdat/pull/970) by Charles Doutriaux ([markers not drawn if x world coordinate reversed](https://github.com/UV-CDAT/uvcdat/issues/969))
-* [Fixes exception from VTKVCSBackend](https://github.com/UV-CDAT/uvcdat/pull/971) by Remi Rampin
-* [Fix quotes updated](https://github.com/UV-CDAT/uvcdat/pull/968) by Remi Rampin, Aashish Chaudhary
-* [Issue 960 bad labels](https://github.com/UV-CDAT/uvcdat/pull/965) by Charles Doutriaux, Aashish Chaudhary ([default boxfill wrong lat labels](https://github.com/UV-CDAT/uvcdat/issues/960))
-* [Issue918 durack1 readme tweaks](https://github.com/UV-CDAT/uvcdat/pull/919) by Paul J. Durack ([Cleanup readme.md](https://github.com/UV-CDAT/uvcdat/issues/918))
-* [Update test_vcs_close for 2.1.0 release.](https://github.com/UV-CDAT/uvcdat/pull/958) by Aashish Chaudhary
-* [Issue948 durack1 cdscan update](https://github.com/UV-CDAT/uvcdat/pull/949) by Paul J. Durack ([cdscan tweaks to work with non CF-compliant input files](https://github.com/UV-CDAT/uvcdat/issues/948))
-* [Update test_vcs_close for 2.1.0 release.](https://github.com/UV-CDAT/uvcdat/pull/945) by Aashish Chaudhary
-* [Vcs3D reenable 3D logo](https://github.com/UV-CDAT/uvcdat/pull/943) by Thomas Maxwell
-* [Fix error causing 3D plots to hang](https://github.com/UV-CDAT/uvcdat/pull/940) by Thomas Maxwell
-* [update images for dv3d_hovmoller_test and dv3d_slider_test](https://github.com/UV-CDAT/uvcdat/pull/936) by Thomas Maxwell
+ * **Bug**: [No usch text combined](https://github.com/UV-CDAT/uvcdat/issues/1096)
+ * **Bug**: [average() indentation error](https://github.com/UV-CDAT/uvcdat/issues/1048)
+
+### Build
+
+ * **Bug**: [Pyclimate not built with build mode all](https://github.com/UV-CDAT/uvcdat/issues/1071)
+ * **Bug**: [test failing because mean is different ](https://github.com/UV-CDAT/uvcdat/issues/1063)
+ * **Bug**: [Building on OS X 10.10.2](https://github.com/UV-CDAT/uvcdat/issues/1012)
+ * ****: [metrics not build if CDAT_BUILD_GUI=OFF](https://github.com/UV-CDAT/uvcdat/issues/996)
+ * ****: [mac build broken](https://github.com/UV-CDAT/uvcdat/issues/991)
+ * **Enhancement**: [no need for git to check ssl](https://github.com/UV-CDAT/uvcdat/issues/924)
+ * ****: [Update udunits to 2.2.x branch](https://github.com/UV-CDAT/uvcdat/issues/847)
+ * ****: [Update netcdf to 4.3.2](https://github.com/UV-CDAT/uvcdat/issues/846)
+ * ****: [Update matplotlib to 1.4.2](https://github.com/UV-CDAT/uvcdat/issues/841)
+ * ****: [Several warnings during the cmake stage that should be cleaned?](https://github.com/UV-CDAT/uvcdat/issues/825)
+ * **Enhancement**: [try to detect protocol for user](https://github.com/UV-CDAT/uvcdat/issues/810)
+ * **Bug**: [Out of source detection is broken](https://github.com/UV-CDAT/uvcdat/issues/713)
+
+### DV3D
+
+ * ****: [vcs3D-return_to_shell_on_q_keypress_event](https://github.com/UV-CDAT/uvcdat/pull/1157)
+ * ****: [Fix error in getCoordType](https://github.com/UV-CDAT/uvcdat/pull/1156)
+ * ****: [Vcs3 d fix 2.2 slider issues](https://github.com/UV-CDAT/uvcdat/pull/1147)
+ * ****: [Slider issues with Hovmuller plot and vector slicer.](https://github.com/UV-CDAT/uvcdat/issues/1146)
+ * ****: [Vcs3D features for v2.1.1](https://github.com/UV-CDAT/uvcdat/pull/951)
+ * ****: [Vcs3D reenable 3D logo](https://github.com/UV-CDAT/uvcdat/pull/943)
+ * **Enhancement**: [Disable 3D plotting tools for data with two spatial dimensions.](https://github.com/UV-CDAT/uvcdat/issues/889)
+
+### Documentation
+
+ * ****: [UV-CDAT docs website: cdms/cdtime manual page problem](https://github.com/UV-CDAT/uvcdat/issues/1136)
+
+### Gatekeeper
+
+ * **Bug**: [renderTemplate needs list, gets None](https://github.com/UV-CDAT/uvcdat/issues/1139)
+ * **Bug**: [test_isolines_label](https://github.com/UV-CDAT/uvcdat/issues/1111)
+ * **Bug**: [Isofill are off](https://github.com/UV-CDAT/uvcdat/issues/1105)
+ * **Bug**: [Removing marker with marker=None generates an error in yxvsx 1D plot (2.1)](https://github.com/UV-CDAT/uvcdat/issues/1103)
+ * ****: [taylordiagrams do not save json ](https://github.com/UV-CDAT/uvcdat/issues/1049)
+ * **Bug**: [vtk package doesn't load](https://github.com/UV-CDAT/uvcdat/issues/1017)
+ * **Bug**: [invalid units lead to error at plot time](https://github.com/UV-CDAT/uvcdat/issues/1008)
+ * **Bug**: [Multiple errors in vcs x.show](https://github.com/UV-CDAT/uvcdat/issues/999)
+ * **Enhancement**: [Longitude and latitude labels](https://github.com/UV-CDAT/uvcdat/issues/976)
+ * ****: [color map error](https://github.com/UV-CDAT/uvcdat/issues/957)
+ * ****: [UI problems on colormap editor](https://github.com/UV-CDAT/uvcdat/issues/911)
+ * **Enhancement**: [Disable 3D plotting tools for data with two spatial dimensions.](https://github.com/UV-CDAT/uvcdat/issues/889)
+
+### UVCDAT GUI
+
+ * **Bug**: [No usch text combined](https://github.com/UV-CDAT/uvcdat/issues/1096)
+ * **Bug**: [GUI cannot load variable](https://github.com/UV-CDAT/uvcdat/issues/1057)
+ * **Bug**: [Cython classmethod_utility_code used in VisTrails vtDVD3D](https://github.com/UV-CDAT/uvcdat/issues/1056)
+ * **Bug**: [Refresh problem with 2.1](https://github.com/UV-CDAT/uvcdat/issues/1007)
+ * ****: [UI problems on colormap editor](https://github.com/UV-CDAT/uvcdat/issues/911)
+ * ****: [Vertical scale on Yxvsx plot upside down?](https://github.com/UV-CDAT/uvcdat/issues/898)
+ * ****: [Deleting all variables doesn't work if one variable is derived from another (in GUI).](https://github.com/UV-CDAT/uvcdat/issues/897)
+ * ****: [UV-CDAT Label on VCS 1D and 2D Plots](https://github.com/UV-CDAT/uvcdat/issues/857)
+ * **Enhancement**: [uvcdat "executable" should unset env or it might be using the "Wrong" python](https://github.com/UV-CDAT/uvcdat/issues/730)
+
+### VCS
+
+ * **Bug**: [isofill masked does not align with isofill cells](https://github.com/UV-CDAT/uvcdat/issues/1170)
+ * **Bug**: [lines drawn behind data](https://github.com/UV-CDAT/uvcdat/issues/1143)
+ * **Bug**: [Cannot animate Isofill](https://github.com/UV-CDAT/uvcdat/issues/1141)
+ * **Bug**: [renderTemplate needs list, gets None](https://github.com/UV-CDAT/uvcdat/issues/1139)
+ * **Bug**: [test_isolines_label](https://github.com/UV-CDAT/uvcdat/issues/1111)
+ * **Bug**: [Isofill are off](https://github.com/UV-CDAT/uvcdat/issues/1105)
+ * **Bug**: [Removing marker with marker=None generates an error in yxvsx 1D plot (2.1)](https://github.com/UV-CDAT/uvcdat/issues/1103)
+ * **Bug**: [No usch text combined](https://github.com/UV-CDAT/uvcdat/issues/1096)
+ * ****: [animate.save() print statements](https://github.com/UV-CDAT/uvcdat/issues/1085)
+ * **Bug**: [test failing because mean is different ](https://github.com/UV-CDAT/uvcdat/issues/1063)
+ * ****: [VCS 2D Interactivity](https://github.com/UV-CDAT/uvcdat/pull/1058)
+ * ****: [taylordiagrams do not save json ](https://github.com/UV-CDAT/uvcdat/issues/1049)
+ * **Enhancement**: [mean on vcs plots should use cdutil.averager if possible](https://github.com/UV-CDAT/uvcdat/issues/1024)
+ * **Bug**: [in some case the continents are not plotted properly (polar proj with north pole)](https://github.com/UV-CDAT/uvcdat/issues/1020)
+ * **Bug**: [invalid units lead to error at plot time](https://github.com/UV-CDAT/uvcdat/issues/1008)
+ * **Bug**: [Refresh problem with 2.1](https://github.com/UV-CDAT/uvcdat/issues/1007)
+ * **Bug**: [Multiple errors in vcs x.show](https://github.com/UV-CDAT/uvcdat/issues/999)
+ * **Enhancement**: [Longitude and latitude labels](https://github.com/UV-CDAT/uvcdat/issues/976)
+ * ****: [ctest might fail because of too many digits on mean](https://github.com/UV-CDAT/uvcdat/issues/952)
+ * ****: [Vcs3D reenable 3D logo](https://github.com/UV-CDAT/uvcdat/pull/943)
+ * **Enhancement**: [Disable 3D plotting tools for data with two spatial dimensions.](https://github.com/UV-CDAT/uvcdat/issues/889)
+ * ****: [boxfill plots don't pick proper interval](https://github.com/UV-CDAT/uvcdat/issues/867)
+ * ****: [UV-CDAT Label on VCS 1D and 2D Plots](https://github.com/UV-CDAT/uvcdat/issues/857)
+ * **Bug**: [The plotting of 120 plots and clearing  is taking too long](https://github.com/UV-CDAT/uvcdat/issues/715)
+ * **Enhancement**: [Fix vcs interact warnings ](https://github.com/UV-CDAT/uvcdat/issues/651)
+
+### VTK
+
+ * **Bug**: [isolines labels are different between mac and linux](https://github.com/UV-CDAT/uvcdat/issues/1160)
+ * **Bug**: [lines drawn behind data](https://github.com/UV-CDAT/uvcdat/issues/1143)
+ * **Bug**: [Isofill are off](https://github.com/UV-CDAT/uvcdat/issues/1105)
+
+### VisTrails
+
+ * **Bug**: [Cython classmethod_utility_code used in VisTrails vtDVD3D](https://github.com/UV-CDAT/uvcdat/issues/1056)
+ * **Bug**: [vtk package doesn't load](https://github.com/UV-CDAT/uvcdat/issues/1017)
+
+### Website
+
+ * ****: [UV-CDAT docs website: cdms/cdtime manual page problem](https://github.com/UV-CDAT/uvcdat/issues/1136)
+
+## Known Bugs
+
+### Critical
+
+ * [SciPy fails to build on CentOS 6.6](https://github.com/UV-CDAT/uvcdat/issues/1192)
+ * [Taylor diagrams (plot set 14)](https://github.com/UV-CDAT/uvcdat/issues/1180)
+ * [3D_Scalar Unexpected Error](https://github.com/UV-CDAT/uvcdat/issues/884)
+ * [Resize Window Core Dump](https://github.com/UV-CDAT/uvcdat/issues/236)
+
+
 
 {% endblock container %}
